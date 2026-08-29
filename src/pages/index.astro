@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+const notes = [
+  { title:'Kenapa aku bikin YukinoSec lagi?', slug:'kenapa-bikin-yukinosec-lagi', category:'Personal', date:'30 Aug 2026', excerpt:'Tempat kecil buat nyimpen hal-hal yang kupelajari, eksperimen, dan catatan yang terlalu sayang kalau hilang.' },
+  { title:'Catatan pertama: mulai dari yang sederhana', slug:'catatan-pertama', category:'Meta', date:'30 Aug 2026', excerpt:'Nggak semua tulisan harus sempurna. Yang penting tersimpan, bisa dicari lagi, dan suatu hari mungkin berguna buat orang lain.' },
+  { title:'Checklist sebelum publish website pribadi', slug:'checklist-publish-website', category:'Web', date:'30 Aug 2026', excerpt:'Checklist kecil untuk memastikan website pribadi sudah punya fondasi SEO, metadata, sitemap, dan performa yang cukup.' },
+];
+---
+<Layout>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><i></i> ONLINE / WRITING MODE</div>
+      <h1>Small notes.<br /><em>Big rabbit holes.</em></h1>
+      <p>Catatan pribadi tentang coding, web, security, anime, project, dan hal-hal random yang tiba-tiba bikin penasaran.</p>
+      <div class="actions"><a class="primary" href="/notes">Explore notes <span>→</span></a><a class="text" href="/about">about me ↗</a></div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="moon"></div><div class="spark s1">✦</div><div class="spark s2">✧</div>
+      <div class="girl"><div class="hair"></div><div class="face"><span></span><span></span></div><div class="body"></div><div class="laptop">&gt;_</div></div>
+      <div class="terminal"><b>yukino@notes</b><br /><span>$ cat today.md</span><br />keep learning_</div>
+    </div>
+  </section>
+
+  <section class="intro-row"><div><span class="section-kicker">01 / RECENT NOTES</span><h2>Yang baru ditulis</h2></div><a href="/notes">lihat semua →</a></section>
+  <section class="notes-grid">
+    {notes.map((note, i) => <article class:list={["note-card", i === 0 && 'featured']}>
+      <div class="card-top"><span>{note.category}</span><time>{note.date}</time></div>
+      <div><h3><a href={`/notes/${note.slug}`}>{note.title}</a></h3><p>{note.excerpt}</p></div>
+      <a class="read" href={`/notes/${note.slug}`}>read note <span>↗</span></a>
+    </article>)}
+  </section>
+
+  <section class="terminal-banner"><div class="dotline"><i></i><i></i><i></i></div><code><span>~/yukinosec</span> $ echo "write it down before you forget"<b>_</b></code></section>
+</Layout>
+
+<style>
+.hero{min-height:560px;display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:30px;padding:72px 0 55px}.eyebrow,.section-kicker{font:11px 'DM Mono',monospace;letter-spacing:.12em;color:#a8a4b4}.eyebrow{display:flex;align-items:center;gap:9px}.eyebrow i{width:7px;height:7px;border-radius:50%;background:#5de1ff;box-shadow:0 0 12px #5de1ff}.hero h1{font-size:clamp(54px,7vw,88px);line-height:.96;letter-spacing:-.065em;margin:20px 0}.hero h1 em{font-style:normal;background:linear-gradient(100deg,#ff72c5,#9f84ff 60%,#65ddff);-webkit-background-clip:text;color:transparent}.hero p{max-width:570px;color:#a7a4b2;line-height:1.8;font-size:15px}.actions{display:flex;align-items:center;gap:20px;margin-top:30px}.primary{padding:13px 17px;border-radius:12px;background:#f1edf8;color:#11111a;font-weight:700;font-size:13px}.primary span{margin-left:10px}.text{font:12px 'DM Mono',monospace;color:#aaa6b5}.hero-art{height:420px;border:1px solid var(--line);border-radius:28px;position:relative;overflow:hidden;background:radial-gradient(circle at 65% 22%,rgba(255,104,194,.35),transparent 7rem),linear-gradient(150deg,#151426,#090a13 68%)}.hero-art:after{content:'';position:absolute;inset:auto 0 0;height:55%;background:linear-gradient(180deg,transparent,rgba(4,5,10,.9)),repeating-linear-gradient(90deg,transparent 0 60px,rgba(130,110,255,.08) 61px 62px);clip-path:polygon(0 35%,15% 24%,28% 40%,42% 12%,55% 32%,67% 18%,78% 38%,91% 15%,100% 28%,100% 100%,0 100%)}.moon{position:absolute;width:150px;height:150px;border-radius:50%;right:58px;top:42px;background:radial-gradient(circle at 35% 35%,#fff,#e8dff8 52%,#8f7ba9);box-shadow:0 0 60px rgba(211,191,255,.2)}.spark{position:absolute;color:#ff91d2;z-index:2}.s1{left:65px;top:65px;font-size:28px}.s2{right:250px;top:150px;font-size:20px;color:#72dcff}.girl{position:absolute;z-index:3;bottom:0;left:50%;transform:translateX(-50%);width:245px;height:335px}.hair{position:absolute;left:50%;top:25px;transform:translateX(-50%);width:160px;height:180px;border-radius:52% 52% 45% 45%;background:linear-gradient(135deg,#24203c,#11101f 65%);box-shadow:20px 10px 0 -5px #30244c}.face{position:absolute;z-index:2;top:70px;left:50%;transform:translateX(-50%);width:103px;height:112px;border-radius:48% 48% 45% 45%;background:linear-gradient(135deg,#f7d9dd,#c99daf)}.face:after{content:'';position:absolute;left:15px;right:15px;bottom:13px;height:20px;border-bottom:2px solid #8e5c73;border-radius:50%}.face span{position:absolute;top:47px;width:13px;height:7px;background:#302244;border-radius:50%;box-shadow:0 0 7px #8e7cff}.face span:first-child{left:24px}.face span:last-child{right:24px}.body{position:absolute;left:35px;right:35px;bottom:-35px;height:190px;border-radius:55px 55px 0 0;background:linear-gradient(100deg,#181727,#322750 55%,#171622);transform:rotate(-2deg)}.body:before{content:'雪';position:absolute;left:100px;top:65px;color:#ff6fc3;font-size:24px;opacity:.7}.laptop{position:absolute;z-index:4;bottom:52px;left:50%;transform:translateX(-50%);width:180px;height:102px;border:7px solid #2a2740;border-radius:9px;background:#090a12;color:#66ddff;padding:16px;font:13px 'DM Mono',monospace;box-shadow:0 0 25px rgba(93,225,255,.12)}.terminal{position:absolute;z-index:5;bottom:28px;right:22px;padding:12px 14px;border:1px solid rgba(93,225,255,.2);background:rgba(6,9,15,.8);font:10px 'DM Mono',monospace;color:#8e899b;line-height:1.7}.terminal b{color:#ff74c6}.terminal span{color:#68dcff}.terminal b:last-child{color:#ff74c6}.intro-row{display:flex;justify-content:space-between;align-items:end;margin:20px 0 18px}.intro-row h2{font-size:28px;margin:8px 0 0;letter-spacing:-.03em}.intro-row>a{font:11px 'DM Mono',monospace;color:#9f9aaa}.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.note-card{min-height:275px;padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(15,16,27,.68);display:flex;flex-direction:column;justify-content:space-between;transition:.25s}.note-card:hover{transform:translateY(-4px);border-color:rgba(255,94,188,.25);background:#121322}.note-card.featured{background:linear-gradient(145deg,rgba(75,40,83,.35),rgba(15,16,27,.8))}.card-top{display:flex;justify-content:space-between;color:#7f7b8c;font:10px 'DM Mono',monospace}.card-top span{color:#ff7fc7}.note-card h3{font-size:19px;line-height:1.3;margin:35px 0 10px;letter-spacing:-.025em}.note-card h3 a:hover{color:#ff8dce}.note-card p{color:#8f8c99;font-size:12px;line-height:1.7;margin:0}.read{margin-top:24px;color:#bcb8c6;font:10px 'DM Mono',monospace}.read span{margin-left:7px;color:#ff72c5}.terminal-banner{margin-top:28px;border:1px solid var(--line);border-radius:15px;padding:14px 17px;background:#0b0c15;display:flex;align-items:center;gap:20px;color:#868291;font:11px 'DM Mono',monospace}.dotline{display:flex;gap:5px}.dotline i{width:7px;height:7px;border-radius:50%;background:#4b4855}.terminal-banner code span{color:#a77cff}.terminal-banner code b{color:#ff68c0}@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:45px}.hero-art{height:360px}.notes-grid{grid-template-columns:1fr}.note-card{min-height:220px}.hero h1{font-size:58px}}
+</style>
