@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const notes = [
+  ['Kenapa aku bikin YukinoSec lagi?','Personal','30 Aug 2026','kenapa-bikin-yukinosec-lagi'],
+  ['Catatan pertama: mulai dari yang sederhana','Meta','30 Aug 2026','catatan-pertama'],
+  ['Checklist sebelum publish website pribadi','Web','30 Aug 2026','checklist-publish-website'],
+];
+---
+<Layout title="Notes — YukinoSec" description="Arsip catatan pribadi YukinoSec tentang coding, web, security, project, dan eksperimen.">
+  <section class="head"><span class="kicker">02 / ARCHIVE</span><h1>Notes<span>.</span></h1><p>Semua catatan kecil yang sengaja disimpan supaya nggak hilang begitu saja.</p></section>
+  <div class="list">{notes.map(([title,category,date,slug],i)=><a class="item" href={`/notes/${slug}`}><span class="num">{String(i+1).padStart(2,'0')}</span><div><span class="meta">{category} · {date}</span><h2>{title}</h2></div><span class="arrow">↗</span></a>)}</div>
+</Layout>
+<style>
+.head{padding:85px 0 55px;max-width:700px}.kicker{font:11px 'DM Mono',monospace;color:#9d98aa;letter-spacing:.12em}.head h1{font-size:clamp(58px,9vw,100px);line-height:1;margin:17px 0;letter-spacing:-.07em}.head h1 span{color:#ff68bd}.head p{color:#92909d;line-height:1.8}.list{border-top:1px solid var(--line)}.item{display:grid;grid-template-columns:60px 1fr 30px;align-items:center;gap:20px;padding:28px 5px;border-bottom:1px solid var(--line);transition:.2s}.item:hover{padding-left:13px;background:linear-gradient(90deg,rgba(255,94,188,.06),transparent)}.num{font:12px 'DM Mono',monospace;color:#575462}.meta{font:10px 'DM Mono',monospace;color:#ff78c4}.item h2{font-size:22px;letter-spacing:-.03em;margin:7px 0}.arrow{color:#777381}.item:hover .arrow{color:#ff78c4}@media(max-width:600px){.head{padding-top:55px}.item{grid-template-columns:35px 1fr 20px}.item h2{font-size:17px}}
+</style>
