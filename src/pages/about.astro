@@ -1,15 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="About — YukinoSec" description="Tentang YukinoSec, personal notes milik seorang developer yang suka ngulik web, coding, security, dan anime.">
+<Layout title="About — YukinoSec" description="Tentang YukinoSec, personal notes untuk web, coding, security, project, anime, dan rabbit holes.">
   <section class="about">
-    <span class="kicker">03 / ABOUT</span>
-    <h1>Just a developer<br /><span>who keeps notes.</span></h1>
-    <p>YukinoSec adalah ruang pribadi untuk menyimpan proses belajar, project, eksperimen, dan hal-hal yang sedang bikin penasaran.</p>
-    <p>Nama, desain, dan isi di sini boleh berubah seiring waktu. Yang penting satu: jangan sampai hal yang sudah dipelajari hilang begitu saja.</p>
+    <div class="label">03 / ABOUT · NICE TO MEET YOU</div>
+    <div class="about-grid">
+      <div>
+        <h1>Just a developer<br /><em>who keeps notes.</em></h1>
+        <p>YukinoSec adalah ruang pribadi untuk menyimpan proses belajar, project, eksperimen, dan hal-hal yang sedang bikin penasaran.</p>
+        <p>Nama, desain, dan isi di sini boleh berubah seiring waktu. Yang penting satu: jangan sampai hal yang sudah dipelajari hilang begitu saja.</p>
+      </div>
+      <div class="profile-card">
+        <div class="profile-head"><span>YUKINOSEC / 003</span><span>ABOUT ME</span></div>
+        <div class="avatar"><div class="hair"></div><div class="face"><i></i><i></i><b></b></div><div class="shirt"></div></div>
+        <div class="profile-bottom"><strong>KEEP<br />CURIOUS.</strong><span>web · code · anime<br />late-night ideas</span></div>
+      </div>
+    </div>
     <div class="quote">「 記録しておけば、いつか誰かの役に立つ。 」<small>— keep learning, keep writing.</small></div>
   </section>
 </Layout>
 <style>
-.about{max-width:760px;padding:100px 0 90px}.kicker{font:11px 'DM Mono',monospace;color:#9994a6;letter-spacing:.12em}.about h1{font-size:clamp(48px,7vw,78px);line-height:1.02;letter-spacing:-.065em;margin:20px 0 30px}.about h1 span{color:#ff69bd}.about p{max-width:650px;color:#9b98a5;line-height:1.9;font-size:15px}.quote{margin-top:48px;border:1px solid var(--line);border-radius:16px;padding:22px 25px;color:#d5d0df;background:rgba(255,255,255,.025);font-size:18px}.quote small{display:block;color:#777381;font:10px 'DM Mono',monospace;margin-top:12px}
+.about{padding:85px 0 50px}.label,.profile-head,.profile-bottom span,.quote small{font:9px 'DM Mono',monospace;letter-spacing:.12em;color:#77747a}.about-grid{display:grid;grid-template-columns:1fr 360px;gap:80px;align-items:center;margin-top:20px}.about h1{font-size:clamp(50px,7vw,88px);line-height:.88;letter-spacing:-.08em;margin:20px 0 30px}.about h1 em{font-family:'Playfair Display',serif;font-style:italic;color:#ee5b9e}.about p{max-width:620px;color:#77747a;line-height:1.9;font-size:14px}.profile-card{height:410px;border:1px solid #17171a;background:#ece9e2;position:relative;transform:rotate(3deg);box-shadow:8px 8px 0 #17171a;overflow:hidden}.profile-head{display:flex;justify-content:space-between;padding:13px;border-bottom:1px solid #d3cec5;font-size:7px}.avatar{height:285px;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 28%,#f6dce5,transparent 5rem)}.hair{position:absolute;width:170px;height:215px;left:96px;top:25px;background:#17171a;border-radius:50% 50% 42% 42%}.face{position:absolute;width:112px;height:128px;left:125px;top:70px;background:#efc9cd;border-radius:48% 48% 45% 45%;z-index:2}.face i{position:absolute;top:58px;width:14px;height:8px;border-bottom:2px solid #17171a;border-radius:50%}.face i:first-child{left:25px}.face i:nth-child(2){right:25px}.face b{position:absolute;width:19px;height:8px;border-bottom:2px solid #9b6375;border-radius:50%;left:47px;top:94px}.shirt{position:absolute;left:72px;right:55px;bottom:-55px;height:150px;border-radius:60px 60px 0 0;background:#17171a}.profile-bottom{display:flex;justify-content:space-between;align-items:end;padding:15px}.profile-bottom strong{font-size:24px;line-height:.84;letter-spacing:-.06em}.profile-bottom span{font-size:7px;line-height:1.7;text-align:right}.quote{margin-top:60px;border-top:1px solid #d9d5cd;border-bottom:1px solid #d9d5cd;padding:28px 5px;font:18px 'Playfair Display',serif;color:#242327}.quote small{display:block;margin-top:10px;font-size:8px}
+@media(max-width:800px){.about{padding-top:55px}.about-grid{grid-template-columns:1fr;gap:40px}.profile-card{width:min(360px,90%);margin:0 auto}.about h1{font-size:58px}.quote{margin-top:45px}}
 </style>
